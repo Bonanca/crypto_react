@@ -5,8 +5,8 @@ import {
 
 const cryptoNewsHeaders = {
     'x-bingapis-sdk': 'true',
-    'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com',
-    'x-rapidapi-key': '54033fc687mshf7d1a99260518b6p1f7deejsnc3ac517b7ce3'
+    'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY,
+    'x-rapidapi-host': process.env.REACT_APP_NEWS_RAPIDAPI_HOST,
 }
 const baseUrl = 'https://bing-news-search1.p.rapidapi.com';
 
@@ -18,7 +18,7 @@ const createRequest = (url) => ({
 export const cryptoNewsApi = createApi({
     reducerPath: 'cryptoNewsApi',
     baseQuery: fetchBaseQuery({
-        baseUrl
+        baseUrl: process.env.REACT_APP_NEWS_API_URL
     }),
     endpoints: (builder) => ({
         getCryptoNews: builder.query({
